@@ -10,6 +10,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "aws-sdk": "^2.848.0",
+    "node-fetch": "^2.6.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -18,6 +19,8 @@
     "@babel/preset-env": "^7.12.17"
   },
   "babel": {
-    "presets": ["@babel/env"]
+    "presets": [
+      "@babel/env"
+    ]
   }
 }

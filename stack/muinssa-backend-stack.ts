@@ -19,17 +19,23 @@ export class MuinssaBackendStack extends cdk.Stack {
       })
 
       const joinFunction = new NodejsFunction(this, 'JoinFunction', {
-        entry: path.join(__dirname, './function/meeting.ts'),
+        entry: path.join(__dirname, './function/meeting.js'),
         runtime: Runtime.NODEJS_14_X,
         handler: 'join',
         bundling: {
           nodeModules: [
-            'amazon-chime-sdk-js'
+            'aws-sdk',
+            'uuid'
           ]
-        }
+        },
+        environment: {
+          MEETINGS_TABLE_NAME: table.tableName
+        },
       });
+      joinFunction.role?.addManagedPolicy(iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonChimeFullAccess'));
       table.grantFullAccess(joinFunction);
-
+      
+      
 
       const api = new apigw.RestApi(this, 'MuinssaApi');
       const joinIntegration = new apigw.LambdaIntegration(joinFunction);
