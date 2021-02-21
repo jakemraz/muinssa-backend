@@ -50,8 +50,12 @@ export class MuinssaBackendStack extends cdk.Stack {
       const eventBridgeHandler = new NodejsFunction(this, 'EventBridgeFunction', {
         entry: path.join(__dirname, './function/meeting.js'),
         runtime: Runtime.NODEJS_14_X,
-        handler: 'event_bridge_handler'
+        handler: 'event_bridge_handler',
+        environment: {
+          MEETINGS_TABLE_NAME: table.tableName
+        }
       });
+      table.grantFullAccess(eventBridgeHandler);
 
       const rule = new events.Rule(this, 'rule', {
         eventPattern: {
