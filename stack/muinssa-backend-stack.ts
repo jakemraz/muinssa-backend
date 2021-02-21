@@ -22,6 +22,11 @@ export class MuinssaBackendStack extends cdk.Stack {
         entry: path.join(__dirname, './function/meeting.ts'),
         runtime: Runtime.NODEJS_14_X,
         handler: 'join',
+        bundling: {
+          nodeModules: [
+            'amazon-chime-sdk-js'
+          ]
+        }
       });
       table.grantFullAccess(joinFunction);
 

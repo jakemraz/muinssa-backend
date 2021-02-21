@@ -1,0 +1,14 @@
+{
+  "name": "meeting",
+  "version": "1.0.0",
+  "description": "lambda function for meeting",
+  "main": "meeting.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jakemraz",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "amazon-chime-sdk-js": "^2.5.0"
+  }
+}
