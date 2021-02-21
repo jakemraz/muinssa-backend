@@ -7,6 +7,9 @@ node_modules
 .cdk.staging
 cdk.out
 
+# Mac
+.DS_Store
+
 # python
 .pyenv
 __pycache__
