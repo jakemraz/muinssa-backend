@@ -9,6 +9,15 @@
   "author": "jakemraz",
   "license": "Apache-2.0",
   "dependencies": {
-    "amazon-chime-sdk-js": "^2.5.0"
+    "aws-sdk": "^2.848.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.17",
+    "@babel/node": "^7.12.17",
+    "@babel/preset-env": "^7.12.17"
+  },
+  "babel": {
+    "presets": ["@babel/env"]
   }
 }
