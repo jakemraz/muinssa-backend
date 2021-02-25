@@ -43,7 +43,12 @@ export const join = async (event) => {
   }).promise();
 
   return {
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Headers" : "Content-Type,Accept",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET"
+    },
     statusCode: 200,
     body: JSON.stringify({
       JoinInfo: {

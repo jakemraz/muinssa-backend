@@ -39,7 +39,13 @@ export class MuinssaBackendStack extends cdk.Stack {
       table.grantFullAccess(joinFunction);
       
 
-      const api = new apigw.RestApi(this, 'MuinssaApi');
+      const api = new apigw.RestApi(this, 'MuinssaApi', {
+        defaultCorsPreflightOptions: {
+          allowOrigins: apigw.Cors.ALL_ORIGINS,
+          allowMethods: apigw.Cors.ALL_METHODS,
+          allowHeaders: ['Content-Type', 'Accept']
+        }
+      });
       const joinIntegration = new apigw.LambdaIntegration(joinFunction);
 
       const v1 = api.root.addResource('v1');
