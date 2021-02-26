@@ -1,6 +1,6 @@
 import { expect as expectCDK, matchTemplate, MatchStyle } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
-import * as MuinssaBackend from '../lib/muinssa-backend-stack';
+import * as MuinssaBackend from '../stack/muinssa-backend-stack';
 
 test('Empty Stack', () => {
     const app = new cdk.App();
